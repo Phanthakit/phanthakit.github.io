@@ -348,6 +348,37 @@ footer.site-footer {
   border-top: 1px solid var(--line); font-size: 0.75rem; opacity: 0.6;
 }
 
+/* ---------- Elegant section divider (replaces the wavy contour line) ---------- */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 260px;
+  margin: 0 auto;
+  padding: 1.6rem 0;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  opacity: 0.7;
+}
+.ornament-divider .mark {
+  width: 7px;
+  height: 7px;
+  margin: 0 1.1rem;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* Utility classes to tighten a section's own padding when a divider,
+   or another section, sits immediately next to it */
+.section--tight-top { padding-top: clamp(1rem, 3vw, 1.8rem) !important; }
+.section--tight-bottom { padding-bottom: clamp(1rem, 3vw, 1.8rem) !important; }
+
 /* ---------- Full-width figure (self-contained infographic images) ---------- */
 .figure-full { max-width: 1180px; margin: 2.4rem auto 0; }
 .figure-full img { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 12px 30px rgba(18,32,26,0.12); }
