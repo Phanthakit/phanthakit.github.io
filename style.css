@@ -383,6 +383,196 @@ footer.site-footer {
 .figure-full { max-width: 1180px; margin: 2.4rem auto 0; }
 .figure-full img { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 12px 30px rgba(18,32,26,0.12); }
 
+/* ===========================================================
+   Wholesale page additions
+   =========================================================== */
+
+/* Offer / pricing cards */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-top: 2.6rem;
+}
+.offer-card {
+  background: var(--cream-soft);
+  border: 1px solid rgba(31,51,40,0.1);
+  border-radius: 3px;
+  padding: 1.8rem 1.6rem;
+}
+.section--dark .offer-card {
+  background: rgba(244,236,217,0.05);
+  border-color: var(--line);
+}
+.offer-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; }
+.offer-card p { font-size: 0.92rem; margin-bottom: 0.9rem; }
+.offer-card .offer-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--clay);
+  border-top: 1px solid rgba(31,51,40,0.15);
+  padding-top: 0.7rem;
+  margin-top: 0.2rem;
+}
+.section--dark .offer-card .offer-tag { color: var(--gold-soft); border-top-color: var(--line); }
+.offer-card ul { list-style: none; padding: 0; margin: 0.8rem 0 0; font-size: 0.88rem; }
+.offer-card ul li { padding: 0.2rem 0; opacity: 0.85; }
+
+/* Coffee profile card */
+.coffee-card {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.6rem;
+  margin-top: 2.6rem;
+  padding-top: 2.6rem;
+  border-top: 1px solid var(--line);
+}
+.coffee-card:first-of-type { border-top: none; padding-top: 0; margin-top: 2rem; }
+.coffee-number {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--gold-soft);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.coffee-card h3 { font-size: 1.9rem; margin-bottom: 0.2rem; }
+.coffee-card .coffee-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+.spec-list { list-style: none; margin: 1.4rem 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1.2rem; font-size: 0.88rem; }
+.spec-list li { display: flex; justify-content: space-between; gap: 0.6rem; border-bottom: 1px dashed var(--line); padding-bottom: 0.4rem; }
+.spec-list li span:first-child { opacity: 0.65; }
+.spec-list li span:last-child { font-weight: 600; text-align: right; }
+
+.tag-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.tag-pill {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--gold-soft);
+  color: var(--gold-soft);
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.cup-character { list-style: none; margin: 1.2rem 0; padding: 0; display: grid; gap: 0.5rem; font-size: 0.9rem; }
+.cup-character li strong { color: var(--gold-soft); font-weight: 600; margin-right: 0.4rem; }
+
+/* Process steps */
+.process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem; margin-top: 2.6rem; counter-reset: step; }
+.process-step { position: relative; padding-top: 2.6rem; }
+.process-step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--gold);
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+}
+.process-step h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.process-step p { font-size: 0.88rem; opacity: 0.85; margin: 0; }
+
+/* FAQ accordion (native, no JS needed) */
+.faq-list { margin-top: 2.2rem; border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.2rem 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--forest);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.section--dark .faq-item summary { color: var(--text-light); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--body);
+  font-size: 1.4rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding-bottom: 1.3rem; margin: 0; max-width: 680px; }
+
+/* Export spec box */
+.spec-box {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 1.6rem 1.8rem;
+  margin-top: 1.8rem;
+  border-radius: 2px;
+}
+.spec-box .spec-list { grid-template-columns: 1fr 1fr; margin: 0; }
+.spec-note { font-size: 0.82rem; opacity: 0.7; margin-top: 1rem; font-style: italic; }
+
+/* Contact form */
+.contact-form { margin-top: 2.6rem; display: grid; gap: 1.3rem; max-width: 760px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-field label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; color: var(--forest); }
+.section--dark .form-field label { color: var(--text-light); }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: var(--body);
+  font-size: 0.92rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(31,51,40,0.25);
+  border-radius: 2px;
+  background: var(--cream-soft);
+  color: var(--ink);
+}
+.section--dark .form-field input,
+.section--dark .form-field select,
+.section--dark .form-field textarea {
+  background: rgba(244,236,217,0.06);
+  border-color: var(--line);
+  color: var(--text-light);
+}
+.form-field textarea { resize: vertical; min-height: 110px; }
+.form-note { font-size: 0.82rem; opacity: 0.65; margin-top: -0.4rem; }
+
+/* Simple centered stat callout */
+.stat-callout {
+  text-align: center;
+  padding: 1.6rem 2rem;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  margin: 1.8rem 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--gold-soft);
+}
+
+@media (max-width: 900px) {
+  .offer-grid { grid-template-columns: repeat(2, 1fr); }
+  .coffee-card { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .offer-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .spec-list, .spec-box .spec-list { grid-template-columns: 1fr; }
+}
+
 /* ---------- Wholesale-specific ---------- */
 .stat-row { display: flex; gap: clamp(2rem, 6vw, 4.5rem); flex-wrap: wrap; margin-top: 2.4rem; }
 .stat { min-width: 140px; }
