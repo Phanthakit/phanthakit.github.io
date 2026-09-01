@@ -250,6 +250,12 @@ nav.primary-nav a.active { color: var(--gold-soft); border-color: var(--gold-sof
     object-position: center 42%;
     border-radius: 4px;
   }
+  /* Wide hero photos with baked-in text at both top and bottom (e.g. wholesale)
+     should never be cropped — show the full image instead. */
+  .hero-image-only.hero-wide img {
+    max-height: none;
+    height: auto;
+  }
 }
 
 .hero-gallery {
